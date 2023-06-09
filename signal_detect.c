@@ -40,7 +40,7 @@ int signal_detekt(short **sample_anfang, int *sample_anzahl) {
    // Schritt 3: Startwert bestimmen
    for(int i=0; i<anzahl_zeitintervalle; i++) {
     if(energieverlauf[i]>schwelle) {
-        **sample_anfang=*(*sample_anfang+(i*laenge_zeitintervalle));
+        *sample_anfang=*sample_anfang+(i*laenge_zeitintervalle);
         index_Beginn_Signal=i;
         break;
     }

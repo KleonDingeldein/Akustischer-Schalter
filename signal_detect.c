@@ -44,9 +44,6 @@ int signal_detekt(short **sample_anfang, int *sample_anzahl) {
         index_Beginn_Signal=i;
         break;
     }
-    if(i==anzahl_zeitintervalle-1) {
-        return 1; // kein Startwert bestimmbar: Signal kann nicht verarbeitet werden
-    }
    }
 
    // Schritt 4: Ende des Signals bestimmen
@@ -57,6 +54,8 @@ int signal_detekt(short **sample_anfang, int *sample_anzahl) {
         break;
     }
    }
+   
+   
 
 }
 

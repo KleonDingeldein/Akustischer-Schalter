@@ -14,7 +14,7 @@ int ndg_dichte(short *feld_ptr, unsigned int anzahl_atw, float *dichte_ori, floa
 
         // größer als +s --> nächsten ermitteln der kleiner ist als -s
         if(*(feld_ptr+i)>schwelle) {
-            for(i=i; i<anzahl_atw; i++) {
+            for(i; i<anzahl_atw; i++) {
                 if(*(feld_ptr+i)<(-schwelle)) {
                     (*dichte_ori)++;
                     break;
@@ -23,7 +23,7 @@ int ndg_dichte(short *feld_ptr, unsigned int anzahl_atw, float *dichte_ori, floa
         }
         // kleiner als -s --> Nächsten ermitteln der überhalb von +s ist
         else if(*(feld_ptr+i)<(-schwelle)) {
-            for(i=i; i<anzahl_atw; i++) {
+            for(i; i<anzahl_atw; i++) {
                 if(*(feld_ptr+i)>schwelle) {
                     (*dichte_ori)++;
                     break;
@@ -44,7 +44,7 @@ int ndg_dichte(short *feld_ptr, unsigned int anzahl_atw, float *dichte_ori, floa
 
         // größer als +s --> nächsten ermitteln der kleiner ist als -s
         if((*(feld_ptr+i)-*(feld_ptr+(i-1)))>schwelle) {
-            for(i=i; i<anzahl_atw; i++) {
+            for(i; i<anzahl_atw; i++) {
                 if((*(feld_ptr+i)-*(feld_ptr+(i-1)))<(-schwelle)) {
                     (*dichte_diff)++;
                     break;
@@ -54,7 +54,7 @@ int ndg_dichte(short *feld_ptr, unsigned int anzahl_atw, float *dichte_ori, floa
 
         // kleiner als -s --> Nächsten ermitteln der überhalb von +s ist
         else if((*(feld_ptr+i)-*(feld_ptr+(i-1)))<(-schwelle)) {
-            for(i=i; i<anzahl_atw; i++) {
+            for(i; i<anzahl_atw; i++) {
                 if((*(feld_ptr+i)-*(feld_ptr+(i-1)))>schwelle) {
                     (*dichte_diff)++;
                     break;

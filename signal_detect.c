@@ -3,16 +3,16 @@
 
 int signal_detekt(short **sample_anfang, int *sample_anzahl) {
 
-   unsigned int anzahl_zeitintervalle=4; // ABÄNDERN!!
+   unsigned int anzahl_zeitintervalle=100; // einstellen
    unsigned int laenge_zeitintervalle=*sample_anzahl/anzahl_zeitintervalle;
 
-   unsigned int energieverlauf[4]; // ABÄNDERN
+   unsigned int energieverlauf[100]; // einstellen
    unsigned int energie=0;
    unsigned int energie_index=0;
 
    unsigned int energie_max=0;
 
-   float einstellung_schwelle=0.3; // ABÄNDERN
+   float einstellung_schwelle=0.3; // einstellen
 
    unsigned int schwelle;
 

@@ -29,8 +29,21 @@ int ndg_histogramm(short *feld_ptr, unsigned int anzahl_atw, float *hist_ori, fl
 
             pos_2 = i;
 
-            zuordnung(pos_1, pos_2, &hist_ori, d1, d2, d3, inc_k1, inc_k2, inc_k3, inc_k4);
-        
+            int laenge = 0;
+            laenge = pos_2 - pos_1;
+
+            if (laenge <= d1) {
+                *(hist_ori)+= inc_k1;
+            }
+            else if (laenge <=d2) {
+                *(hist_ori+1)+=inc_k2;
+            }
+            else if (laenge <=d3) {
+                *(hist_ori+2)+=inc_k3;
+            }
+            else {
+                *(hist_ori+3)+=inc_k4;
+            }
         }
         // kleiner-gleich als -s
         else if(*(feld_ptr+i)<=(-schwelle)) {
@@ -44,8 +57,21 @@ int ndg_histogramm(short *feld_ptr, unsigned int anzahl_atw, float *hist_ori, fl
             
             pos_2 = i;
             
-            zuordnung(pos_1, pos_2, &hist_ori, d1, d2, d3, inc_k1, inc_k2, inc_k3, inc_k4);
-        
+            int laenge = 0;
+            laenge = pos_2 - pos_1;
+
+            if (laenge <= d1) {
+                *(hist_ori)+= inc_k1;
+            }
+            else if (laenge <=d2) {
+                *(hist_ori+1)+=inc_k2;
+            }
+            else if (laenge <=d3) {
+                *(hist_ori+2)+=inc_k3;
+            }
+            else {
+                *(hist_ori+3)+=inc_k4;
+            }
         }
 
         // keines von beiden, also zwischen dne Schwellenwerten
@@ -69,8 +95,21 @@ int ndg_histogramm(short *feld_ptr, unsigned int anzahl_atw, float *hist_ori, fl
             
             pos_2 = i;
 
-            zuordnung(pos_1, pos_2, &hist_diff, d1, d2, d3, inc_k1, inc_k2, inc_k3, inc_k4);
-        
+            int laenge = 0;
+            laenge = pos_2 - pos_1;
+
+            if (laenge <= d1) {
+                *(hist_diff)+= inc_k1;
+            }
+            else if (laenge <=d2) {
+                *(hist_diff+1)+=inc_k2;
+            }
+            else if (laenge <=d3) {
+                *(hist_diff+2)+=inc_k3;
+            }
+            else {
+                *(hist_diff+3)+=inc_k4;
+            }
         }
         // kleiner-gleich als -s
         else if((*(feld_ptr+i) - *(feld_ptr+(i-1))) <= (-schwelle)) {
@@ -84,8 +123,21 @@ int ndg_histogramm(short *feld_ptr, unsigned int anzahl_atw, float *hist_ori, fl
             
             pos_2 = i;
             
-            zuordnung(pos_1, pos_2, &hist_diff, d1, d2, d3, inc_k1, inc_k2, inc_k3, inc_k4);
-        
+            int laenge = 0;
+            laenge = pos_2 - pos_1;
+
+            if (laenge <= d1) {
+                *(hist_diff)+= inc_k1;
+            }
+            else if (laenge <=d2) {
+                *(hist_diff+1)+=inc_k2;
+            }
+            else if (laenge <=d3) {
+                *(hist_diff+2)+=inc_k3;
+            }
+            else {
+                *(hist_diff+3)+=inc_k4;
+            }
         }
 
         // keines von beiden, also zwischen dne Schwellenwerten
@@ -104,24 +156,4 @@ int ndg_histogramm(short *feld_ptr, unsigned int anzahl_atw, float *hist_ori, fl
 
     return(1);    //Keine Daten
 
-}
-
-// Hilfsfunktion - Zuordnung der Abstände in die Kanäle des Histogramms
-void zuordnung (int pos_1, int pos_2, float *hist, short d1, short d2, short d3, int inc_k1, int inc_k2, int inc_k3, int inc_k4) {
-
-    int laenge = 0;
-    laenge = pos_2 - pos_1;
-
-    if (laenge <= d1) {
-        *(hist)+= inc_k1;
-    }
-    else if (laenge <=d2) {
-        *(hist+1)+=inc_k2;
-    }
-    else if (laenge <=d3) {
-        *(hist+2)+=inc_k3;
-    }
-    else {
-        *(hist+3)+=inc_k4;
-    }
 }
